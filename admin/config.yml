@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # Reponuzun ana dalı (örneğin "main" veya "master")
+
+media_folder: "03_images/uploads" # Medya dosyalarının saklanacağı yer
+public_folder: "/03_images/uploads" # Yayınlanan sitedeki yol
+
+collections:
+  - name: "menu"
+    label: "Menü"
+    folder: "data/menu" # Menü verilerinin saklanacağı klasör
+    create: true # Yeni öğe oluşturulabilir
+    slug: "{{slug}}" # Dosya adı formatı
+    fields:
+      - { label: "Kategori", name: "category", widget: "select", options: ["Ana Yemekler", "Atıştırmalıklar", "Kahve", "Kahve İçermeyen"] }
+      - { label: "İsim", name: "name", widget: "string" }
+      - { label: "Açıklama", name: "description", widget: "string" }
+      - { label: "Fiyat", name: "price", widget: "string" }
