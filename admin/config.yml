@@ -3,7 +3,6 @@ backend:
   branch: main
 
 locale: 'tr'
-site_url: https://lunadene.netlify.app
 
 media_folder: "/03_images/uploads"
 public_folder: "/03_images/uploads"
