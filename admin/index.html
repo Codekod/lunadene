@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,6 +7,62 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+    <!-- Netlify CMS'in yolunu düzeltelim -->
+    <script>
+        window.CMS_MANUAL_INIT = true;
+    </script>
     <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
+    <script>
+        // CMS'i manuel olarak başlatalım ve config dosyasının yolunu belirtelim
+        const config = {
+            backend: {
+                name: 'git-gateway',
+                branch: 'main'
+            },
+            load_config_file: false,
+            media_folder: '/03_images/uploads',
+            public_folder: '/03_images/uploads',
+            collections: [{
+                name: 'menu',
+                label: 'Menü',
+                folder: 'data/menu',
+                create: true,
+                slug: '{{slug}}',
+                fields: [
+                    {
+                        label: 'Kategori',
+                        name: 'category',
+                        widget: 'select',
+                        options: ['Ana Yemekler', 'Atıştırmalıklar', 'Kahve', 'Kahve İçermeyen']
+                    },
+                    {
+                        label: 'İsim',
+                        name: 'name',
+                        widget: 'string'
+                    },
+                    {
+                        label: 'Açıklama',
+                        name: 'description',
+                        widget: 'text'
+                    },
+                    {
+                        label: 'Fiyat',
+                        name: 'price',
+                        widget: 'number',
+                        value_type: 'float'
+                    },
+                    {
+                        label: 'Resim',
+                        name: 'image',
+                        widget: 'image',
+                        required: false
+                    }
+                ]
+            }]
+        };
+
+        // CMS'i başlat
+        window.CMS.init({ config });
+    </script>
 </body>
 </html>
