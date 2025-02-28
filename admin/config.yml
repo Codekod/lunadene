@@ -1,30 +1,22 @@
----
 backend:
   name: git-gateway
   branch: main
-media_folder: 03_images/uploads
-public_folder: /03_images/uploads
+
+locale: 'tr'
+site_url: https://lunadene.netlify.app
+
+media_folder: "/03_images/uploads"
+public_folder: "/03_images/uploads"
+
 collections:
   - name: menu
     label: Menü
-    folder: data/menu
+    folder: "data/menu"
     create: true
     slug: "{{slug}}"
     fields:
-      - label: Kategori
-        name: category
-        widget: select
-        options:
-          - Ana Yemekler
-          - Atıştırmalıklar
-          - Kahve
-          - Kahve İçermeyen
-      - label: İsim
-        name: name
-        widget: string
-      - label: Açıklama
-        name: description
-        widget: string
-      - label: Fiyat
-        name: price
-        widget: string
+      - {label: "Kategori", name: "category", widget: "select", options: ["Ana Yemekler", "Atıştırmalıklar", "Kahve", "Kahve İçermeyen"]}
+      - {label: "İsim", name: "name", widget: "string"}
+      - {label: "Açıklama", name: "description", widget: "text"}
+      - {label: "Fiyat", name: "price", widget: "number", value_type: "float"}
+      - {label: "Resim", name: "image", widget: "image", required: false}
